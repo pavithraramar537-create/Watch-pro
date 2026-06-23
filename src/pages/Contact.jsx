@@ -1,5 +1,12 @@
 import { useState } from 'react'
 
+const styles = {
+  page: { padding: '20px', backgroundColor: '#111', color: 'white', minHeight: '100vh' },
+  form: { display: 'flex', flexDirection: 'column', gap: '15px', maxWidth: '400px', marginTop: '20px' },
+  input: { padding: '12px', borderRadius: '8px', border: '1px solid #444', backgroundColor: '#222', color: 'white' },
+  button: { padding: '12px', backgroundColor: '#4f46e5', color: 'white', border: 'none', borderRadius: '8px', cursor: 'pointer' }
+}
+
 function Contact() {
   const [msg, setMsg] = useState('')
 
@@ -15,25 +22,18 @@ function Contact() {
       <form onSubmit={handleSubmit} style={styles.form}>
         <input type="text" placeholder="Your Name" style={styles.input} required />
         <input type="email" placeholder="Your Email" style={styles.input} required />
-        <textarea 
-          placeholder="Your Message" 
+        <textarea
+          placeholder="Your Message"
           value={msg}
           onChange={(e) => setMsg(e.target.value)}
-          style={styles.input} 
+          style={styles.input}
           rows="4"
-          required 
+          required
         />
-        <button type="submit" style={styles.btn}>Send Message</button>
+        <button type="submit" style={styles.button}>Send Message</button>
       </form>
     </div>
   )
-}
-
-const styles = {
-  page: { padding: '2rem', textAlign: 'center' },
-  form: { display: 'flex', flexDirection: 'column', gap: '1rem', maxWidth: '400px', margin: 'auto' },
-  input: { padding: '0.8rem', fontSize: '1rem', borderRadius: '4px', border: '1px solid #ccc' },
-  btn: { padding: '1rem', background: 'gold', border: 'none', cursor: 'pointer', fontSize: '1rem' }
 }
 
 export default Contact
